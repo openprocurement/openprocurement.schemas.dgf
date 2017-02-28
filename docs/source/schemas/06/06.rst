@@ -1,0 +1,23 @@
+
+
+======================
+Schema 06
+======================
+
+Main page :ref:`schemas`
+
+
+
+
+version 001
+-----------
+
+.. raw:: html
+
+    <script src="../../../../../../_static/docson/widget.js"
+        data-schema="../../schemas/06/schema_001.json">
+    </script>
+
+
+
+
