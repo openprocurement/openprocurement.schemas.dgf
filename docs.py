@@ -15,7 +15,7 @@ Create tree for json schema in docs
 
 """
 
-main_schema_template = """
+main_schema_template = u"""
 .. index:: Schemas
 
 .. _Schemas:
@@ -33,7 +33,7 @@ All schemas:
 
 """
 
-schemas_rst_template = """
+schemas_rst_template = u"""
 
 ======================
 Schema {schema_number}
@@ -47,14 +47,14 @@ Main page :ref:`schemas`
 
 """
 
-schema_template = """
+schema_template = u"""
 
 version {version}
 -----------
 
 .. raw:: html
 
-    <script src="../{static_path}_static/docson/widget.js"
+    <script src="../{static_path}static/docson/widget.js"
         data-schema="../../schemas/{schema_path}/{file}">
     </script>
 
@@ -79,7 +79,7 @@ def create_doctree(path):
         if not SCHEMA_PATH.search(path):
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
-        doctree.append("{}/{}".format(path, path.replace('/', '')))
+        doctree.append("schemas/{}/{}".format(path, path.replace('/', '')))
     return "\n   ".join(doctree)
 
 
