@@ -25,13 +25,16 @@ msgstr ""
 
 #: ../../source/schemas/04/04.rst:7 ../../source/schemas/04/1/041.rst:7
 #: ../../source/schemas/04/1/2/0412.rst:7
-#: ../../source/schemas/04/1/2/2/04122.rst:7
+#: ../../source/schemas/04/1/2/2/04122.rst:7 ../../source/schemas/06/06.rst:7
+#: ../../source/schemas/06/1/061.rst:7 ../../source/schemas/06/1/2/0612.rst:7
 msgid "Main page :ref:`schemas`"
 msgstr ""
 
 #: ../../source/schemas/04/04.rst:13 ../../source/schemas/04/1/041.rst:13
 #: ../../source/schemas/04/1/2/0412.rst:13
 #: ../../source/schemas/04/1/2/2/04122.rst:13
+#: ../../source/schemas/06/06.rst:13 ../../source/schemas/06/1/061.rst:13
+#: ../../source/schemas/06/1/2/0612.rst:13
 msgid "version 001"
 msgstr ""
 
@@ -49,4 +52,16 @@ msgstr ""
 
 #: ../../source/schemas/04/1/2/2/04122.rst:24
 msgid "version 002"
+msgstr ""
+
+#: ../../source/schemas/06/06.rst:5
+msgid "Schema 06"
+msgstr ""
+
+#: ../../source/schemas/06/1/061.rst:5
+msgid "Schema 061"
+msgstr ""
+
+#: ../../source/schemas/06/1/2/0612.rst:5
+msgid "Schema 0612"
 msgstr ""

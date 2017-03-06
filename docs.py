@@ -54,8 +54,8 @@ version {version}
 
 .. raw:: html
 
-    <script src="../{static_path}static/docson/widget.js"
-        data-schema="../../schemas/{schema_path}/{file}">
+    <script src="../{static_path}_static/docson/widget.js"
+        data-schema="../../{schema_path}/{file}">
     </script>
 
 """
@@ -84,7 +84,7 @@ def create_doctree(path):
 
 
 def create_schemas_docs():
-    for index, (path, dirs, files) in enumerate(os.walk('./openprocurement/schemas/dgf/schemas')):
+    for (path, dirs, files) in os.walk('./openprocurement/schemas/dgf/schemas'):
         if not SCHEMA_PATH.search(path):
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
@@ -92,7 +92,7 @@ def create_schemas_docs():
         rst = [schema_template.format(
                 file=file,
                 schema_path=path,
-                static_path="../" * index,
+                static_path="../" * len(path.split('/')),
                 version=VERSION_RE.search(file).groupdict()['version'])
                for file in files]
         path_for_docs = os.path.join(os.getcwd(), 'docs', 'source', 'schemas', path)
