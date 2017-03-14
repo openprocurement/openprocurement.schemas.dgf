@@ -15,7 +15,7 @@ Create tree for json schema in docs
 
 """
 
-main_schema_template = """
+main_schema_template = u"""
 .. index:: Schemas
 
 .. _Schemas:
@@ -33,7 +33,7 @@ All schemas:
 
 """
 
-schemas_rst_template = """
+schemas_rst_template = u"""
 
 ======================
 Schema {schema_number}
@@ -47,7 +47,7 @@ Main page :ref:`schemas`
 
 """
 
-schema_template = """
+schema_template = u"""
 
 version {version}
 -----------
@@ -55,7 +55,7 @@ version {version}
 .. raw:: html
 
     <script src="../{static_path}_static/docson/widget.js"
-        data-schema="../../schemas/{schema_path}/{file}">
+        data-schema="../../{schema_path}/{file}">
     </script>
 
 """
@@ -79,12 +79,12 @@ def create_doctree(path):
         if not SCHEMA_PATH.search(path):
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
-        doctree.append("{}/{}".format(path, path.replace('/', '')))
+        doctree.append("schemas/{}/{}".format(path, path.replace('/', '')))
     return "\n   ".join(doctree)
 
 
 def create_schemas_docs():
-    for index, (path, dirs, files) in enumerate(os.walk('./openprocurement/schemas/dgf/schemas')):
+    for (path, dirs, files) in os.walk('./openprocurement/schemas/dgf/schemas'):
         if not SCHEMA_PATH.search(path):
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
@@ -92,7 +92,7 @@ def create_schemas_docs():
         rst = [schema_template.format(
                 file=file,
                 schema_path=path,
-                static_path="../" * index,
+                static_path="../" * len(path.split('/')),
                 version=VERSION_RE.search(file).groupdict()['version'])
                for file in files]
         path_for_docs = os.path.join(os.getcwd(), 'docs', 'source', 'schemas', path)

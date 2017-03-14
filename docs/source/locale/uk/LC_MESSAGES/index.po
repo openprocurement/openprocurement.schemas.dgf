@@ -19,18 +19,18 @@ msgstr ""
 msgid "Contents:"
 msgstr ""
 
-#: ../../source/index.rst:20
+#: ../../source/index.rst:19
 msgid "Indices and tables"
 msgstr ""
 
-#: ../../source/index.rst:22
+#: ../../source/index.rst:21
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../source/index.rst:23
+#: ../../source/index.rst:22
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../source/index.rst:24
+#: ../../source/index.rst:23
 msgid ":ref:`search`"
 msgstr ""
