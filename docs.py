@@ -52,11 +52,7 @@ schema_template = """
 version {version}
 -----------
 
-.. raw:: html
-
-    <script src="../{static_path}_static/docson/widget.js"
-        data-schema="../../schemas/{schema_path}/{file}">
-    </script>
+.. jsonschema:: ../../schemas/{schema_path}/{file}
 
 """
 

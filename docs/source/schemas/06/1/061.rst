@@ -12,12 +12,9 @@ Main page :ref:`schemas`
 version 001
 -----------
 
-.. raw:: html
-
-    <script src="../../../_static/docson/widget.js"
-        data-schema="../../schemas/06/1/schema_001.json">
-    </script>
+.. jsonschema:: ../../../../../openprocurement/schemas/dgf/schemas/06/1/schema_001.json
 
 
+`Schema 061`_
 
-
+.. _`Schema 061`: ../../../../../../openprocurement/schemas/dgf/schemas/06/1/schema_001.json
