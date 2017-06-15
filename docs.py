@@ -64,7 +64,7 @@ def create_doc_file(path, file_name, rst):
 
 
 def create_dir(path):
-    """ Create directory bu path if it not exists """
+    """ Create directory by path if it not exists """
     if not os.path.exists(path):
         os.makedirs(path)
 
