@@ -8,6 +8,7 @@ from re import compile
 
 SCHEMA_PATH = compile(r'dgf/schemas/(?P<path>[a-zA-Z0-9_/]+)$')
 VERSION_RE = compile(r'schema_(?P<version>\d+).json')
+DIR_PATH = os.path.dirname(os.path.realpath(__file__))
 
 """
 
@@ -52,8 +53,12 @@ schema_template = u"""
 version {version}
 -----------
 
-.. jsonschema:: ../../schemas/{schema_path}/{file}
+.. jsonschema:: {dir_path}/openprocurement/schemas/dgf/schemas/{schema_path}/{file}
 
+
+`Schema {schema_number}`_
+
+.. _`Schema {schema_number}`: {dir_path}/openprocurement/schemas/dgf/schemas/{schema_path}/{file}
 """
 
 
@@ -75,7 +80,7 @@ def create_doctree(path):
         if not SCHEMA_PATH.search(path):
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
-        doctree.append("{}/{}".format(path, path.replace('/', '')))
+        doctree.append("schemas/{}/{}".format(path, path.replace('/', '')))
     return "\n   ".join(doctree)
 
 
@@ -85,8 +90,11 @@ def create_schemas_docs():
             continue
         path = SCHEMA_PATH.search(path).groupdict()['path']
         print("Find schemas in {path}".format(path=path))
+        schema_number = path.replace('/', '')
         rst = [schema_template.format(
                 file=file,
+                dir_path=DIR_PATH,
+                schema_number=schema_number,
                 schema_path=path,
                 static_path="../" * index,
                 version=VERSION_RE.search(file).groupdict()['version'])
@@ -94,7 +102,7 @@ def create_schemas_docs():
         path_for_docs = os.path.join(os.getcwd(), 'docs', 'source', 'schemas', path)
         create_dir(path_for_docs)
         create_doc_file(path_for_docs,
-                        "{name}.rst".format(name=path.replace('/', '')),
+                        "{schema_number}.rst".format(schema_number=schema_number),
                         rst)
 
     with io.open('./docs/source/schemas.rst', 'w') as f:
