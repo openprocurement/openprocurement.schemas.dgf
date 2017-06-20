@@ -15,7 +15,7 @@ Create tree for json schema in docs
 
 """
 
-main_schema_template = """
+main_schema_template = u"""
 .. index:: Schemas
 
 .. _Schemas:
@@ -33,7 +33,7 @@ All schemas:
 
 """
 
-schemas_rst_template = """
+schemas_rst_template = u"""
 
 ======================
 Schema {schema_number}
@@ -47,7 +47,7 @@ Main page :ref:`schemas`
 
 """
 
-schema_template = """
+schema_template = u"""
 
 version {version}
 -----------
@@ -60,7 +60,7 @@ version {version}
 def create_doc_file(path, file_name, rst):
     with io.open(os.path.join(path, file_name), 'w') as f:
         f.write(schemas_rst_template.format(schema_number=file_name[:-4],
-                                            schemas="".join(rst)))
+                                            schemas=''.join(rst)))
 
 
 def create_dir(path):
