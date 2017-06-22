@@ -46,7 +46,7 @@ We got such a scheme.
 Add ID
 ~~~~~~
 
-Patter for schema is 06*****, so ID must have look **file:///schemas/06/schema_001.json**
+Pattern for schema is 06******, so ID must look like **urn:cav:06\*\*\*\*\*\*-\*.\*\*\***
 
 
 Create schema for 061****
@@ -56,12 +56,12 @@ Schema fields table.
 
 .. image:: static/tutorial/fields_table.png
 
-We can see that 061***** template have only 1 unique field. We can inherit rest fields from parent schema.
+We can see that 061***** template has 1 additional field.
 
 
 Copy previous schema, edit fields, add one more, and edit ID.
 
-Updated schema.
+Updated schema:
 
 .. include:: static/tutorial/061_fields_with_validation.json
    :code:
