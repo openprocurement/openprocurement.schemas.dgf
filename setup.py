@@ -6,7 +6,7 @@ version = '1.2.2'
 requires = [
     'setuptools',
     'schematics',
-    'jsonschema'
+    'jsonschema==2.6.0'
 ]
 
 test_requires = requires + [
